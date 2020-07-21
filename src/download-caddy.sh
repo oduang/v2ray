@@ -2,8 +2,11 @@ _download_caddy_file() {
 	caddy_tmp="/tmp/install_caddy/"
 	caddy_tmp_file="/tmp/install_caddy/caddy.tar.gz"
 	[[ -d $caddy_tmp ]] && rm -rf $caddy_tmp
-	local caddy_download_link="https://github.com/mholt/caddy/releases/download/v0.11.0/caddy_v0.11.0_linux_amd64.tar.gz"
-
+	if [[ $sys_bit == "i386" || $sys_bit == "i686" ]]; then
+		local caddy_download_link="https://caddyserver.com/download/linux/386?license=personal"
+	else
+		local caddy_download_link="https://github.com/mholt/caddy/releases/download/v0.11.0/caddy_v0.11.0_linux_amd64.tar.gz"
+	fi
 	mkdir -p $caddy_tmp
 
 	if ! wget --no-check-certificate -O "$caddy_tmp_file" $caddy_download_link; then
