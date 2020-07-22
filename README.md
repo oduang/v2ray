@@ -9,4 +9,5 @@
 
 ## 感谢
 https://github.com/233boy/v2ray
-https://github.com/Nluva/v2ray/master/
+
+https://github.com/Nluva/v2ray/
